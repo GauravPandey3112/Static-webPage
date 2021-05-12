@@ -21,13 +21,19 @@ body {
 }
 
 .wrapper .sidebar {
+  display: block;
   position: fixed;
   width: 200px;
   height: 93%;
   background: #4b4276;
   padding: 30px 0;
 }
-
+.wrapper .sidebar .closeBtn {
+  margin-left: 170px;
+  margin-top: 5px;
+  cursor: pointer;
+  display: none;
+}
 .wrapper .sidebar h2 {
   color: #fff;
   text-transform: uppercase;
@@ -121,7 +127,7 @@ body {
   position: relative;
   z-index: 111;
 
-  background-color: white;
+  background-color: #cdc8e6;
 }
 .user_profile_headline h2 {
   margin: 0;
@@ -135,7 +141,18 @@ body {
   font-family: verdana;
   color: gray;
 }
+.burger {
+  background-color: #4b4276;
+  height: 30px;
 
+  display: none;
+}
+
+.burger img {
+  width: 28px;
+  height: 30px;
+  margin-left: 20px;
+}
 .head-wrap #navbar {
   background-color: #594f8d;
   color: #594f8d;
@@ -161,7 +178,9 @@ body {
 }
 
 .wrapper .info {
+  display: flex;
   width: 100%;
+  background: #cdc8e6;
   margin-left: 200px;
   margin-top: 291.6px;
   overflow: scroll;
@@ -169,8 +188,9 @@ body {
 }
 
 .info #main {
-  float: left;
-  width: 67%;
+  /* float: left;
+  width: 67%; */
+  flex-basis: 65%;
   padding: 0;
   background-color: #cdc8e6;
 }
@@ -178,12 +198,13 @@ body {
 .info #sidebar {
   /* float: right; */
   right: 0px;
-  width: 33%;
+  width: 35%;
+  flex-basis: 35%;
   height: 100%;
   margin-top: 0px;
-  background: #f3f5f9;
+  /* background-color: #f3f5f9; */
   color: #fff;
-  /* padding: 10px; */
+  padding: 10px;
   box-sizing: border-box;
   position: fixed;
 }
@@ -277,9 +298,12 @@ h4 {
   background-color: #4b4276;
   padding: 10px;
 }
-
+.column {
+  background-color: #b4acda;
+}
 .row {
   display: flex;
+  flex-wrap: wrap;
   padding: 10px;
 }
 
@@ -290,9 +314,48 @@ h4 {
   padding: 10px;
 }
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
+@media only screen and (max-width: 768px) {
+  .wrapper .sidebar {
+    display: none;
+    z-index: 600;
+  }
+  .wrapper .sidebar .closeBtn {
+    display: block;
+  }
+  .social_media {
+    z-index: 500;
+  }
+  .head-wrap {
+    left: 0;
+  }
+  .burger {
+    display: block;
+    cursor: pointer;
+  }
+
+  .wrapper .info {
+    margin-left: 0;
+  }
+
+  .info #sidebar {
+    position: static;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .wrapper .info {
+    margin-left: 0;
+    display: block;
+  }
+
+  .info #sidebar {
+    position: static;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .wrapper .sidebar {
+    display: block !important;
+  }
 }

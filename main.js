@@ -2,6 +2,10 @@ let submitBtn = document.querySelector('button');
 let feed = document.querySelector('.feed');
 let form = document.querySelector('form')
 let input = document.querySelector('input')
+let hamburger = document.querySelector('.hamburger')
+let sideMenu = document.querySelector('.sidebar')
+let closeBtn = document.querySelector('.closeBtn')
+console.log(hamburger);
 
 
 loadEventListeners();
@@ -71,3 +75,28 @@ function storeCommentinLocalStorage(comment) {
     localStorage.setItem('comments', JSON.stringify(comments))
 
 }
+
+
+
+
+
+hamburger.addEventListener('click', () => {
+
+    if (sideMenu.style.display === 'block') {
+        sideMenu.style.display = 'none'
+
+    } else {
+        sideMenu.style.display = 'block'
+    }
+})
+
+closeBtn.addEventListener('click', () => {
+    if (sideMenu.style.display === 'block') {
+        sideMenu.style.display = 'none'
+
+    } else {
+        sideMenu.style.display = 'block'
+    }
+})
+
+
