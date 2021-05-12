@@ -243,12 +243,16 @@ body {
 
 button {
   margin-left: 10px;
-  background-color: #b4acda;
-  width: 25px;
+  background-color: #2d2d41;
+  width: 45px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
 }
 
 button:hover {
   background-color: #fff;
+  color: #2d2d41;
 }
 
 .comment {
