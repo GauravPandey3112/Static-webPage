@@ -51,8 +51,8 @@
                     <nav id="navbar">
                         <div class="container">
                             <ul>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Posts</a></li>
+                                <li><a href="#about">About</a></li>
+                                <li><a href="#posts">Posts</a></li>
                                 <li><a href="#">Photos</a></li>
                                 <li><a href="#">Comments</a></li>
                             </ul>
@@ -61,8 +61,11 @@
                 </div>
                 <div class="info">
                     <section id="main">
-                           
-                        <div class="post">
+                        <div id="about">
+                            <h4>About:</h4>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et, ipsam quidem? Sed molestias sint praesentium?</p>
+                        </div>
+                        <div class="post" id="posts">
                             <div class="profile-pic">
                                 <img src="./images/profile.jpg" alt="User">
                             </div>
@@ -75,7 +78,7 @@
                                 <h4>Comments:</h4>
                                 
                                 <form class="input-box">
-                                    <input type="text" placeholder="Add a comment..." >
+                                    <input type="text" placeholder="Add a comment..." maxlength="250" pattern="[A-Za-z0-9\s,''.'&quot;]+" required title="Invalid Format" >
                                     <button type="button" class="submitBtn">Post <i class="fas fa-comments"></i>
                                         </button>
                                     

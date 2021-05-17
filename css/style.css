@@ -208,6 +208,8 @@ body {
   flex-basis: 65%;
   padding: 0;
   background-color: #cdc8e6;
+  display: flex;
+  flex-direction: column;
 }
 
 .info #sidebar {
@@ -241,8 +243,23 @@ body {
   width: 100%;
 }
 
+:target {
+  background-color: #4b4276;
+  color: #fff;
+}
+#main #about {
+  flex-basis: 50%;
+  padding: 20px;
+}
+
+#about p {
+  margin-left: 40px;
+  margin-top: 20px;
+}
+
 /* Feed */
 #main .post {
+  flex-basis: 50%;
   display: flex;
   padding: 30px;
   margin-left: 0;
@@ -253,9 +270,6 @@ body {
   height: 35px;
 }
 
-.post:nth-child(even) {
-  background-color: #594f8d;
-}
 .feed {
   margin-left: 20px;
 }

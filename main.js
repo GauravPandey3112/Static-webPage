@@ -21,10 +21,10 @@ function getComments() {
     if (localStorage.getItem('comments') === null) {
         comments = [];
     } else {
-        comments = (localStorage.getItem('comments'));
+        comments = JSON.parse(localStorage.getItem('comments'));
     }
 
-    JSON.parse(comments).map((comment) => {
+    (comments).map((comment) => {
         let div = document.createElement('div');
         div.className = 'comment';
         let p = document.createElement('p');
@@ -43,26 +43,39 @@ function getComments() {
 submitBtn.addEventListener('click', (e) => {
 
     if (e.target.className === 'submitBtn') {
-        let text = e.target;
-        console.log(text);
-        let inputValue = input.value;
-        console.log(inputValue);
-        let div = document.createElement('div');
-        div.className = 'comment';
-        let p = document.createElement('p');
-        p.innerHTML = inputValue;
-        let hr = document.createElement('hr');
-        div.appendChild(p);
-        div.appendChild(hr)
-        console.log(div);
-        feed.insertBefore(div, form)
+        if (input.checkValidity()) {
+            input.setCustomValidity('');
+            input.reportValidity()
+            let text = e.target;
+            console.log(text);
+            let inputValue = input.value;
+            console.log(input.checkValidity());
+            let div = document.createElement('div');
+            div.className = 'comment';
+            let p = document.createElement('p');
+            p.innerHTML = inputValue;
+            let hr = document.createElement('hr');
+            div.appendChild(p);
+            div.appendChild(hr)
+            console.log(div);
+            feed.insertBefore(div, form)
 
-        storeCommentinLocalStorage(inputValue)
+            storeCommentinLocalStorage(inputValue)
 
-        input.value = '';
+            input.value = '';
+        } else {
+            input.setCustomValidity("No Special Characters Allowed");
+            input.reportValidity()
+        }
     }
 
 })
+
+input.addEventListener("input", () => {
+    input.setCustomValidity("");
+    console.log(input.checkValidity())
+
+});
 
 function storeCommentinLocalStorage(comment) {
     let comments;
