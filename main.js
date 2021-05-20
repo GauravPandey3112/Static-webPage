@@ -113,3 +113,17 @@ closeBtn.addEventListener('click', () => {
 })
 
 
+//Highlight active nav
+
+let menus = document.querySelectorAll('.menu')
+// console.log(menus)
+for (var i = 0; i < menus.length; i++) {
+    menus[i].addEventListener("click", function () {
+        var current = document.getElementsByClassName("active");
+        // console.log(current);
+        current[0].className = current[0].className.replace(" active", "");
+        this.className += " active";
+    });
+}
+
+
